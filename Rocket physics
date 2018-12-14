@@ -1,0 +1,32 @@
+x=0
+x1=25
+
+y1=25
+
+def setup():
+    size(1360,710)
+    background(100)
+def draw(): 
+    background(100)
+    global x
+    global x1
+    global y1
+    if ((keyPressed) and (key == 'd')):
+        x+=0.03
+        
+    if ((keyPressed) and (key == 'a')):
+        x+=-0.03
+    if ((keyPressed) and (key == 'w')):
+        x1+=cos(x)
+
+        y1+=sin(x)
+
+
+    #if ((keyPressed) and (key == 's')):
+    #    y+=1
+    pushMatrix()
+    translate(x1*3, y1*3)
+    rotate(x)
+    rectMode(CENTER)
+    rect(0, 0, 50, 50)
+    popMatrix()
