@@ -1,0 +1,22 @@
+size(1360, 710)
+RGB
+background(0)
+noStroke()
+
+#Rocket Body
+body_x = 680
+body_y = 380
+fill(185)
+ellipse(body_x, body_y, 125, 50)
+rect(body_x - 70, body_y - 20, 45, 40)
+
+#Rocket Winglets
+fill(195, 0, 0)
+triangle(body_x - 70, body_y - 40, body_x - 70, body_y - 20, body_x - 30, body_y - 20)
+triangle(body_x - 70, body_y + 40, body_x - 70, body_y + 20, body_x - 30, body_y + 20)
+
+#Rocket Porthole
+fill(50)
+ellipse(body_x + 10, body_y, 45, 45)
+fill(0, 0, 255)
+ellipse(body_x + 10, body_y, 30, 30)
