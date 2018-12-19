@@ -9,9 +9,9 @@ right = False
 
 def setup():
     size(1360,710)
-    background(100)
+    background(0)
 def draw(): 
-    background(100)
+    background(0)
     global angle
     global body_x
     global body_y
