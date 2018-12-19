@@ -1,0 +1,20 @@
+def setup():
+    size(1360,710)
+    background(0)
+    global planet_x
+    global planet_y
+                
+    #Planets
+    planet_x = random(100, 1360)
+    planet_y = random(50, 660)
+
+def draw(): 
+    #planets
+    fill(0, 200, 0)
+    ellipse(planet_x, planet_y, 200, 200)
+    fill(0, 190, 0)
+    ellipse(planet_x - 50, planet_y - 25, 75, 75)
+    fill(0, 190, 0)
+    ellipse(planet_x + 40, planet_y + 50, 55, 55)    
+    
+    
