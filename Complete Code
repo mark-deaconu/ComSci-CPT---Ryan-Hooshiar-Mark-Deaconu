@@ -1,8 +1,7 @@
-angle=0
-body_x=25
-
-body_y=25
-
+angle = 0
+body_x = 25
+body_y = 25
+monster_indicator = 0
 moveup = False
 left = False
 right = False
@@ -13,9 +12,11 @@ def setup():
     global planet_y
     global monster_x
     global monster_y
-                
+    
+    frameRate(30)            
+    
     #Planets
-    planet_x = random(100, 1360)
+    planet_x = random(200, 1360)
     planet_y = random(50, 660) 
     
     monster_x = planet_x
@@ -30,7 +31,9 @@ def draw():
     global moveup
     global left
     global right
-    
+    global monster_x
+    global monster_y
+    global monster_indicator
      #planets
     fill(0, 200, 0)
     ellipse(planet_x, planet_y, 200, 200)
@@ -41,6 +44,13 @@ def draw():
 
 
     #Space Monsters
+    if monster_x == planet_x or monster_indicator == 0:
+        monster_x == planet_x - 5
+        monster_indicator = 0
+    monster_x -= 5
+    if monster_x <= planet_x - 105 or monster_indicator == 1:
+        monster_x += 10
+        monster_indicator = 1
     fill(150, 0, 150)
     ellipse(monster_x - 50, monster_y - 25, 65, 65)
     rect(monster_x - 120, monster_y - 25, 50, 20)    
@@ -56,8 +66,8 @@ def draw():
     ellipse(monster_x - 45, monster_y - 25, 40, 50)
     fill(200, 0, 0)
     ellipse(monster_x - 35, monster_y - 25, 20, 40)
-    if monster_x == planet_x:
-        monster_x -=5
+
+        
     
     if (right):
         angle+=0.03
@@ -82,8 +92,6 @@ def draw():
     ellipse(0, 0, 125, 50)
     
     #Rocket Winglets
-    if (fire_gif):
-        image(rocket_fire, body_x - 10, body_y, 100, 100)
     fill(195, 0, 0)
     #triangle(body_x - 70, body_y - 40, body_x - 70, body_y - 20, body_x - 30, body_y - 20)
     triangle(-70, -40,-70, -20, -30, -20)
