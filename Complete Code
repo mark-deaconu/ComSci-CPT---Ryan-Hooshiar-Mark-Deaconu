@@ -1,0 +1,136 @@
+angle=0
+body_x=25
+
+body_y=25
+
+moveup = False
+left = False
+right = False
+def setup():
+    size(1360,710)
+    background(100)
+    global planet_x
+    global planet_y
+    global monster_x
+    global monster_y
+                
+    #Planets
+    planet_x = random(100, 1360)
+    planet_y = random(50, 660) 
+    
+    monster_x = planet_x
+    monster_y = planet_y
+
+    
+def draw(): 
+    background(0)
+    global angle
+    global body_x
+    global body_y
+    global moveup
+    global left
+    global right
+    
+     #planets
+    fill(0, 200, 0)
+    ellipse(planet_x, planet_y, 200, 200)
+    fill(0, 140, 0)
+    ellipse(planet_x - 50, planet_y - 25, 75, 75)
+    fill(0, 140, 0)
+    ellipse(planet_x + 40, planet_y + 50, 55, 55)  
+
+
+    #Space Monsters
+    fill(150, 0, 150)
+    ellipse(monster_x - 50, monster_y - 25, 65, 65)
+    rect(monster_x - 120, monster_y - 25, 50, 20)    
+    rect(monster_x - 120, monster_y - 50, 50, 20) 
+    ellipse(monster_x - 120, monster_y - 15, 25, 25)
+    ellipse(monster_x - 120, monster_y - 40, 25, 25) 
+    fill(255)
+    ellipse(monster_x - 120, monster_y - 15, 15, 15)
+    ellipse(monster_x - 120, monster_y - 40, 15, 15)
+    fill(0)
+    ellipse(monster_x - 120, monster_y - 15, 5, 5)
+    ellipse(monster_x - 120, monster_y - 40, 5, 5)
+    ellipse(monster_x - 45, monster_y - 25, 40, 50)
+    fill(200, 0, 0)
+    ellipse(monster_x - 35, monster_y - 25, 20, 40)
+    if monster_x == planet_x:
+        monster_x -=5
+    
+    if (right):
+        angle+=0.03
+    
+    
+    if (left):
+        angle+=-0.03
+    if (moveup):
+        body_x+=cos(angle)
+
+        body_y+=sin(angle)
+
+
+    #if ((keyPressed) and (key == 's')):
+    #    y+=1
+    pushMatrix()
+    translate(body_x*3, body_y*3)
+    rotate(angle)
+    
+    #Rocket Body
+    fill(185)
+    ellipse(0, 0, 125, 50)
+    
+    #Rocket Winglets
+    if (fire_gif):
+        image(rocket_fire, body_x - 10, body_y, 100, 100)
+    fill(195, 0, 0)
+    #triangle(body_x - 70, body_y - 40, body_x - 70, body_y - 20, body_x - 30, body_y - 20)
+    triangle(-70, -40,-70, -20, -30, -20)
+    triangle(-70, 40, -70, 20, -30, 20)
+    
+    #Rocket Porthole
+    fill(50)
+    ellipse(10, 0, 45, 45)
+    fill(0, 0, 255)
+    ellipse(10, 0, 30, 30)
+    
+    
+    
+    popMatrix()
+    
+def keyPressed():
+    global moveup
+    global left
+    global right
+    global body_x
+    global body_y
+    global angle
+    global fire_gif
+    if ((key == 'W') or (key == 'w')):
+        moveup= True
+        body_x+= 2*cos(angle)
+        body_y+= 2*sin(angle)
+        
+    if ((key == 'A') or (key == 'a')):
+        left= True
+    if ((key == 'D') or (key == 'd')):
+        right = True
+        
+
+        
+def keyReleased():
+    global right
+    global moveup
+    global left
+    
+    if ((key != 'W') and (key != 'w')):
+        moveup = False
+        left = False
+        right = False
+    if ((key != 'A') and (key != 'a')):
+        left= False
+        moveup= True
+    if ((key != 'D') and (key != 'd')):
+        right= False
+        moveup = True
