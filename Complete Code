@@ -1,10 +1,12 @@
 angle = 0
 body_x = 25
-body_y = 25
+body_y = 355
 monster_indicator = 0
 moveup = False
 left = False
 right = False
+
+
 def setup():
     size(1360,710)
     background(100)
@@ -27,7 +29,7 @@ def setup():
     monster_x = planet_x
     monster_y = planet_y
 
-    
+        
 def draw(): 
     background(0)
     global angle
@@ -80,8 +82,8 @@ def draw():
     ellipse(monster_x - 35, monster_y - 25, 20, 40)
     
     #Asteroid Belt
-    if body_y <= 45:
-        body_y += 100
+    if body_y <= 150:
+        body_y += 200
         textSize(80)
         fill(125, 0, 0)
         text("YOU DIED", 450, 350)
@@ -97,8 +99,8 @@ def draw():
     rect(1150, 10, 100, 60)
     rect(1300, 10, 100, 60)
     
-    if body_y >= 200:
-        body_y -= 200
+    if body_y >= 600:
+        body_y -= 255
         textSize(80)
         fill(125, 0, 0)
         text("YOU DIED", 450, 350)
@@ -154,7 +156,7 @@ def draw():
     #if ((keyPressed) and (key == 's')):
     #    y+=1
     pushMatrix()
-    translate(body_x*3, body_y*3)
+    translate(body_x, body_y)
     rotate(angle)
     
     #Rocket Body
@@ -174,9 +176,9 @@ def draw():
     ellipse(10, 0, 30, 30)
     
     
-    
     popMatrix()
     
+
 def keyPressed():
     global moveup
     global left
@@ -195,7 +197,6 @@ def keyPressed():
     if ((key == 'D') or (key == 'd')):
         right = True
         
-
         
 def keyReleased():
     global right
