@@ -68,17 +68,17 @@ def draw():
     if body_x >= planet_x - 100 and body_x <= planet_x + 100 and body_y >= planet_y - 100 and body_y <= planet_y + 100:
         textSize(80)
         fill(125, 0, 0)
-        text("YOU DIED", 450, 350)
+        text("Collecting Fuel", 450, 350)
     
     if body_x >= planet_x2 - 75 and body_x <= planet_x2 + 75 and body_y >= planet_y2 - 75 and body_y <= planet_y2 + 75:
         textSize(80)
         fill(125, 0, 0)
-        text("YOU DIED", 450, 350)
+        text("Collecting Fuel", 450, 350)
     
     if body_x >= planet_x3 - 87.5 and body_x <= planet_x3 + 87.5 and body_y >= planet_y3 - 87.5 and body_y <= planet_y3 + 87.5:
         textSize(80)
         fill(125, 0, 0)
-        text("YOU DIED", 450, 350)
+        text("Collecting Fuel", 450, 350)
         
       #planet 1
     fill(0, 200, 0)
@@ -100,7 +100,6 @@ def draw():
     ellipse(planet_x3, planet_y3, 175, 175)
     fill(150, 0, 150)
     ellipse(planet_x3 - 35, planet_y3 + 30, 65, 65)
-    ellipse(planet_x3
     
 
     #Space Monsters
@@ -126,9 +125,12 @@ def draw():
     ellipse(monster_x - 45, monster_y - 25, 40, 50)
     fill(200, 0, 0)
     ellipse(monster_x - 35, monster_y - 25, 20, 40)
+#Monster Function
+    if monster_x - 120 == body_x and monster_y - 15 == body_y:
+        body_x = 100
 
     #Asteroid Belt
-    if body_y <= 130:
+    """if body_y <= 130:
         body_y += 200
         textSize(80)
         fill(125, 0, 0)
@@ -160,7 +162,7 @@ def draw():
     rect(850, 660, 100, 60)
     rect(1000, 660, 100, 60)
     rect(1150, 660, 100, 60)
-    rect(1300, 660, 100, 60)
+    rect(1300, 660, 100, 60)"""
     
     #Fuel Bar
     fill(211,211,211)
