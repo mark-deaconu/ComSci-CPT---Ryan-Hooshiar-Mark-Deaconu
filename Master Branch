@@ -2,10 +2,11 @@ angle = 0
 body_x = 25
 body_y = 355
 monster_indicator = 0
+fuel=100
 moveup = False
 left = False
 right = False
-
+fuel_exists=True
         #Planets
 planet_x = 1300
 planet_y = random(150, 200) 
@@ -48,7 +49,8 @@ def draw():
     global planet_y2
     global planet_x3
     global planet_y3
-
+    global fuel
+    global fuel_exists
 
     if planet_x <= 1300:
         planet_x -= 5
@@ -69,16 +71,19 @@ def draw():
         textSize(80)
         fill(125, 0, 0)
         text("Collecting Fuel", 450, 350)
+        fuel+=1
     
     if body_x >= planet_x2 - 75 and body_x <= planet_x2 + 75 and body_y >= planet_y2 - 75 and body_y <= planet_y2 + 75:
         textSize(80)
         fill(125, 0, 0)
         text("Collecting Fuel", 450, 350)
+        fuel+=1
     
     if body_x >= planet_x3 - 87.5 and body_x <= planet_x3 + 87.5 and body_y >= planet_y3 - 87.5 and body_y <= planet_y3 + 87.5:
         textSize(80)
         fill(125, 0, 0)
         text("Collecting Fuel", 450, 350)
+        fuel+=1
         
       #planet 1
     fill(0, 200, 0)
@@ -125,32 +130,31 @@ def draw():
     ellipse(monster_x - 45, monster_y - 25, 40, 50)
     fill(200, 0, 0)
     ellipse(monster_x - 35, monster_y - 25, 20, 40)
+#Monster Function
+    if monster_x - 120 == body_x and monster_y - 15 == body_y:
+        body_x = 100
 
     #Asteroid Belt
-    if body_y <= 70:
+    if body_y <= 130:
         body_y += 200
-        textSize(80)
-        fill(125, 0, 0)
-        text("YOU DIED", 450, 350)
+        fuel_exists=False
     print(body_y)
         
     fill(218,165,32)
-    rect(-50, 5, 100, 30)
-    rect(100, 5, 100, 30)
-    rect(250, 5, 100, 30)
-    rect(400, 5, 100, 30)
-    rect(550, 5, 100, 30)
-    rect(700, 5, 100, 30)
-    rect(850, 5, 100, 30)
-    rect(1000, 5, 100, 30)
-    rect(1150, 5, 100, 30)
-    rect(1300, 5, 100, 30)
+    rect(-50, 10, 100, 60)
+    rect(100, 10, 100, 60)
+    rect(250, 10, 100, 60)
+    rect(400, 10, 100, 60)
+    rect(550, 10, 100, 60)
+    rect(700, 10, 100, 60)
+    rect(850, 10, 100, 60)
+    rect(1000, 10, 100, 60)
+    rect(1150, 10, 100, 60)
+    rect(1300, 10, 100, 60)
     
     if body_y >= 600:
         body_y -= 255
-        textSize(80)
-        fill(125, 0, 0)
-        text("YOU DIED", 450, 350)
+        fuel_exists=False
         
     fill(218,165,32)
     rect(400, 660, 100, 60)
@@ -162,6 +166,7 @@ def draw():
     rect(1300, 660, 100, 60)
     
     #Fuel Bar
+    fuel+=-0.5
     fill(211,211,211)
     rect(0, 660, 410, 50)
     fill(0)
@@ -176,18 +181,31 @@ def draw():
     rect(280, 670, 10, 30) 
     rect(320, 670, 10, 30)
     rect(360, 670, 10, 30)
-    fill(0, 200, 200)
-    rect(10, 670, 30, 30)
-    rect(50, 670, 30, 30)
-    rect(90, 670, 30, 30)
-    rect(130, 670, 30, 30)
-    rect(170, 670, 30, 30)
-    rect(210, 670, 30, 30)
-    rect(250, 670, 30, 30)
-    rect(290, 670, 30, 30)
-    rect(330, 670, 30, 30)
-    rect(370, 670, 30, 30)
     
+    fill(0, 200, 200)
+    if fuel>10:
+        rect(10, 670, 30, 30)
+    if fuel>20:
+        rect(50, 670, 30, 30)
+    if fuel>30:
+        rect(90, 670, 30, 30)
+    if fuel>40:
+        rect(130, 670, 30, 30)
+    if fuel>50:
+        rect(170, 670, 30, 30)
+    if fuel>60:
+        rect(210, 670, 30, 30)
+    if fuel>70:
+        rect(250, 670, 30, 30)
+    if fuel>80:
+        rect(290, 670, 30, 30)
+    if fuel>90:
+        rect(330, 670, 30, 30)
+    if fuel>97:
+        rect(370, 670, 30, 30)
+    if fuel<0:
+        fuel_exists=False
+
     if (right):
         angle += 0.1
     if (left):
@@ -200,7 +218,8 @@ def draw():
     #if ((keyPressed) and (key == 's')):
     #    y+=1
     pushMatrix()
-    translate(body_x, body_y)
+    if fuel_exists==True:
+        translate(body_x, body_y)
     rotate(angle)
     
     #Rocket Body
