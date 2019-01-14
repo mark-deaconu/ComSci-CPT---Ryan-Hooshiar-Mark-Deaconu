@@ -6,28 +6,29 @@ moveup = False
 left = False
 right = False
 
+        #Planets
+planet_x = 1300
+planet_y = random(150, 200) 
+
+planet_x2 = 1300
+planet_y2 = random(300, 400) 
+    
+planet_x3 = 1300
+planet_y3 = random(450, 550)
+
+monster_x = planet_x
+monster_y = planet_y
+
 
 def setup():
     size(1360,710)
     background(100)
-    global planet_x
-    global planet_y
-    #global planet_x2
-    #global planet_y2
     global monster_x
     global monster_y
+    global monster_indicator
     
     frameRate(30)            
-    
-    #Planets
-    planet_x = random(400, 1360)
-    planet_y = random(150, 560) 
-    
-    #planet_x2 = random(200, 1360)
-    #planet_y2 = random(50, 660) 
-    
-    monster_x = planet_x
-    monster_y = planet_y
+
 
         
 def draw(): 
@@ -41,8 +42,45 @@ def draw():
     global monster_x
     global monster_y
     global monster_indicator
+    global planet_x
+    global planet_y
+    global planet_x2
+    global planet_y2
+    global planet_x3
+    global planet_y3
+
+
+    if planet_x <= 1300:
+        planet_x -= 5
+    if planet_x <= 0:
+        planet_x = 1300
     
-      #planets
+    if planet_x2 <= 1300:
+        planet_x2 -= 10
+    if planet_x2 <= 0:
+        planet_x2 = 1300
+    
+    if planet_x3 <= 1300:
+        planet_x3 -= 7
+    if planet_x3 <= 0:
+        planet_x3 = 1300
+    
+    if body_x >= planet_x - 100 and body_x <= planet_x + 100 and body_y >= planet_y - 100 and body_y <= planet_y + 100:
+        textSize(80)
+        fill(125, 0, 0)
+        text("YOU DIED", 450, 350)
+    
+    if body_x >= planet_x2 - 75 and body_x <= planet_x2 + 75 and body_y >= planet_y2 - 75 and body_y <= planet_y2 + 75:
+        textSize(80)
+        fill(125, 0, 0)
+        text("YOU DIED", 450, 350)
+    
+    if body_x >= planet_x3 - 87.5 and body_x <= planet_x3 + 87.5 and body_y >= planet_y3 - 87.5 and body_y <= planet_y3 + 87.5:
+        textSize(80)
+        fill(125, 0, 0)
+        text("YOU DIED", 450, 350)
+        
+      #planet 1
     fill(0, 200, 0)
     ellipse(planet_x, planet_y, 200, 200)
     fill(0, 140, 0)
@@ -50,12 +88,20 @@ def draw():
     fill(0, 140, 0)
     ellipse(planet_x + 40, planet_y + 50, 55, 55)
     
-    #fill(150, 200, 150)
-    #ellipse(planet_x2, planet_y2, 250, 250)
-    #fill(0, 140, 0)
-    #ellipse(planet_x2 - 30, planet_y2 - 50, 75, 75)
-    #fill(0, 140, 0)
-    #ellipse(planet_x2 + 20, planet_y2 + 70, 55, 55)
+    #planet 2
+    fill(200, 200, 0)
+    ellipse(planet_x2, planet_y2, 150, 150)
+    fill(140, 140, 0)
+    ellipse(planet_x2 - 25, planet_y2 - 20, 75, 75)
+    ellipse(planet_x2 + 20, planet_y2 + 35, 45, 45)
+    
+    #planet 3
+    fill(255, 0, 255)
+    ellipse(planet_x3, planet_y3, 175, 175)
+    fill(150, 0, 150)
+    ellipse(planet_x3 - 35, planet_y3 + 30, 65, 65)
+    ellipse(planet_x3
+    
 
     #Space Monsters
     if monster_x == planet_x or monster_indicator == 0:
@@ -80,13 +126,18 @@ def draw():
     ellipse(monster_x - 45, monster_y - 25, 40, 50)
     fill(200, 0, 0)
     ellipse(monster_x - 35, monster_y - 25, 20, 40)
-    
+#Monster Function
+    if monster_x - 120 == body_x and monster_y - 15 == body_y:
+        body_x = 100
+
     #Asteroid Belt
-    if body_y <= 150:
+    if body_y <= 130:
         body_y += 200
         textSize(80)
         fill(125, 0, 0)
         text("YOU DIED", 450, 350)
+    print(body_y)
+        
     fill(218,165,32)
     rect(-50, 10, 100, 60)
     rect(100, 10, 100, 60)
@@ -142,16 +193,13 @@ def draw():
     rect(370, 670, 30, 30)
     
     if (right):
-        angle+=0.03
-    
-    
+        angle += 0.1
     if (left):
-        angle+=-0.03
+        angle += -0.1
     if (moveup):
-        body_x+=cos(angle)
+        body_x += cos(angle) * 7
 
-        body_y+=sin(angle)
-
+        body_y += sin(angle) * 7
 
     #if ((keyPressed) and (key == 's')):
     #    y+=1
@@ -161,23 +209,21 @@ def draw():
     
     #Rocket Body
     fill(185)
-    ellipse(0, 0, 125, 50)
+    ellipse(0, 0, 62.5, 25)
     
     #Rocket Winglets
     fill(195, 0, 0)
     #triangle(body_x - 70, body_y - 40, body_x - 70, body_y - 20, body_x - 30, body_y - 20)
-    triangle(-70, -40,-70, -20, -30, -20)
-    triangle(-70, 40, -70, 20, -30, 20)
+    triangle(-35, -20,-35, -10, -15, -10)
+    triangle(-35, 20, -35, 10, -15, 10)
     
     #Rocket Porthole
     fill(50)
-    ellipse(10, 0, 45, 45)
+    ellipse(10, 0, 22.5, 22.5)
     fill(0, 0, 255)
-    ellipse(10, 0, 30, 30)
-    
+    ellipse(10, 0, 15, 15)
     
     popMatrix()
-    
 
 def keyPressed():
     global moveup
@@ -189,14 +235,13 @@ def keyPressed():
     global fire_gif
     if ((key == 'W') or (key == 'w')):
         moveup= True
-        body_x+= 2*cos(angle)
-        body_y+= 2*sin(angle)
+        body_x += 2* cos(angle)
+        body_y += 2* sin(angle)
         
     if ((key == 'A') or (key == 'a')):
         left= True
     if ((key == 'D') or (key == 'd')):
         right = True
-        
         
 def keyReleased():
     global right
