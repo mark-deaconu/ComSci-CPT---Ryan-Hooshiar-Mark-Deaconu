@@ -125,12 +125,9 @@ def draw():
     ellipse(monster_x - 45, monster_y - 25, 40, 50)
     fill(200, 0, 0)
     ellipse(monster_x - 35, monster_y - 25, 20, 40)
-#Monster Function
-    if monster_x - 120 == body_x and monster_y - 15 == body_y:
-        body_x = 100
 
     #Asteroid Belt
-    """if body_y <= 130:
+    if body_y <= 70:
         body_y += 200
         textSize(80)
         fill(125, 0, 0)
@@ -138,16 +135,16 @@ def draw():
     print(body_y)
         
     fill(218,165,32)
-    rect(-50, 10, 100, 60)
-    rect(100, 10, 100, 60)
-    rect(250, 10, 100, 60)
-    rect(400, 10, 100, 60)
-    rect(550, 10, 100, 60)
-    rect(700, 10, 100, 60)
-    rect(850, 10, 100, 60)
-    rect(1000, 10, 100, 60)
-    rect(1150, 10, 100, 60)
-    rect(1300, 10, 100, 60)
+    rect(-50, 5, 100, 30)
+    rect(100, 5, 100, 30)
+    rect(250, 5, 100, 30)
+    rect(400, 5, 100, 30)
+    rect(550, 5, 100, 30)
+    rect(700, 5, 100, 30)
+    rect(850, 5, 100, 30)
+    rect(1000, 5, 100, 30)
+    rect(1150, 5, 100, 30)
+    rect(1300, 5, 100, 30)
     
     if body_y >= 600:
         body_y -= 255
@@ -162,7 +159,7 @@ def draw():
     rect(850, 660, 100, 60)
     rect(1000, 660, 100, 60)
     rect(1150, 660, 100, 60)
-    rect(1300, 660, 100, 60)"""
+    rect(1300, 660, 100, 60)
     
     #Fuel Bar
     fill(211,211,211)
