@@ -5,6 +5,7 @@ monster_indicator = 0
 moveup = False
 left = False
 right = False
+pushback= False
 time=0
 
 def setup():
@@ -41,10 +42,21 @@ def draw():
     global monster_x
     global monster_y
     global monster_indicator
+    global planet_x
+    global pushback
     global time
-    body_x=0
-    monster_x+=-body_x
-    #planets
+    planet_x+=-2
+    monster_x+=-2
+    if body_x>600:
+        pushback= True
+    if pushback==True:
+        time+=1
+        body_x+=-10
+        if time>30:
+            pushback= False
+            time=0
+        
+      #planets
     fill(0, 200, 0)
     ellipse(planet_x, planet_y, 200, 200)
     fill(0, 140, 0)
@@ -82,6 +94,7 @@ def draw():
     ellipse(monster_x - 45, monster_y - 25, 40, 50)
     fill(200, 0, 0)
     ellipse(monster_x - 35, monster_y - 25, 20, 40)
+    
     #Asteroid Belt
     if body_y <= 150:
         body_y += 200
@@ -101,17 +114,12 @@ def draw():
     rect(1300, 10, 100, 60)
     
     if body_y >= 600:
+        body_y -= 255
         textSize(80)
         fill(125, 0, 0)
-        time+=1
-        if time<100:
-            text("YOU DIED", 450, 350)
-        else:
-            body_y -= 255
-            
-    if time>100:
-        time=0
-        fill(218,165,32)
+        text("YOU DIED", 450, 350)
+        
+    fill(218,165,32)
     rect(400, 660, 100, 60)
     rect(550, 660, 100, 60)
     rect(700, 660, 100, 60)
@@ -148,16 +156,15 @@ def draw():
     rect(370, 670, 30, 30)
     
     if (right):
-        angle+=0.1
+        angle+=0.06
     
     
     if (left):
-        angle+=-0.1
+        angle+=-0.06
     if (moveup):
-        body_x+=cos(angle)*7
+        body_x+=cos(angle)*4
 
-        body_y+=sin(angle)*7
-
+        body_y+=sin(angle)*4
 
     #if ((keyPressed) and (key == 's')):
     #    y+=1
@@ -202,7 +209,7 @@ def keyPressed():
         left= True
     if ((key == 'D') or (key == 'd')):
         right = True
-    popMatrix()
+        
         
 def keyReleased():
     global right
