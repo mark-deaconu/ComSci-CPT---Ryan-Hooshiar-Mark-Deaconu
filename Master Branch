@@ -1,7 +1,6 @@
 angle = 0
 body_x = 25
 body_y = 355
-monster_indicator = 0
 fuel=100
 moveup = False
 left = False
@@ -113,7 +112,7 @@ def draw():
     ellipse(monster_x - 120, monster_y - 40, 5, 5)
     ellipse(monster_x - 45, monster_y - 25, 40, 50)
     fill(200, 0, 0)
-    ellipse(monster_x - 35, monster_y - 25, 20, 40)
+    ellipse(planet_x - 35, planet_y - 25, 20, 40)
 
     '''#Asteroid Belt
     if body_y <= 130:
