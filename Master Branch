@@ -6,7 +6,9 @@ fuel=100
 moveup = False
 left = False
 right = False
-fuel_exists=True
+fuel_exists=False
+
+
         #Planets
 planet_x = 1300
 planet_y = random(150, 200) 
@@ -70,19 +72,19 @@ def draw():
     if body_x >= planet_x - 100 and body_x <= planet_x + 100 and body_y >= planet_y - 100 and body_y <= planet_y + 100:
         textSize(80)
         fill(125, 0, 0)
-        text("Collecting Fuel", 450, 350)
+        #text("Collecting Fuel", 450, 350)
         fuel+=1
     
     if body_x >= planet_x2 - 75 and body_x <= planet_x2 + 75 and body_y >= planet_y2 - 75 and body_y <= planet_y2 + 75:
         textSize(80)
         fill(125, 0, 0)
-        text("Collecting Fuel", 450, 350)
+        #text("Collecting Fuel", 450, 350)
         fuel+=1
     
     if body_x >= planet_x3 - 87.5 and body_x <= planet_x3 + 87.5 and body_y >= planet_y3 - 87.5 and body_y <= planet_y3 + 87.5:
         textSize(80)
         fill(125, 0, 0)
-        text("Collecting Fuel", 450, 350)
+        #text("Collecting Fuel", 450, 350)
         fuel+=1
         
       #planet 1
@@ -131,7 +133,7 @@ def draw():
     fill(200, 0, 0)
     ellipse(monster_x - 35, monster_y - 25, 20, 40)
 
-    #Asteroid Belt
+    '''#Asteroid Belt
     if body_y <= 130:
         body_y += 200
         fuel_exists=False
@@ -160,7 +162,7 @@ def draw():
     rect(850, 660, 100, 60)
     rect(1000, 660, 100, 60)
     rect(1150, 660, 100, 60)
-    rect(1300, 660, 100, 60)
+    rect(1300, 660, 100, 60)'''
     
     #Fuel Bar
     fuel+=-0.5
@@ -204,9 +206,9 @@ def draw():
         fuel_exists=False
 
     if (right):
-        angle += 0.1
+        angle += 0.17
     if (left):
-        angle += -0.1
+        angle += -0.17
     if (moveup):
         body_x += cos(angle) * 7
 
@@ -217,26 +219,68 @@ def draw():
     pushMatrix()
     if fuel_exists==True:
         translate(body_x, body_y)
+        
     rotate(angle)
-    
+        
     #Rocket Body
     fill(185)
     ellipse(0, 0, 62.5, 25)
-    
+        
     #Rocket Winglets
     fill(195, 0, 0)
     #triangle(body_x - 70, body_y - 40, body_x - 70, body_y - 20, body_x - 30, body_y - 20)
     triangle(-35, -20,-35, -10, -15, -10)
     triangle(-35, 20, -35, 10, -15, 10)
-    
+        
     #Rocket Porthole
     fill(50)
     ellipse(10, 0, 22.5, 22.5)
     fill(0, 0, 255)
     ellipse(10, 0, 15, 15)
-    
+        
     popMatrix()
-
+    
+    if fuel_exists==False:
+        #body_x=0
+        #body_y=0
+        rect(0,0,2000,1000)
+        fill(0, 255, 0)
+        rect(550, 155, 245, 125)
+        textSize(100)
+        fill(255)
+        text("PLAY", 550, 255)
+        textSize(50)
+        text("HOW TO PLAY:", 490, 355)
+        textSize(20)
+        text("The controls are W to move forward,", 490, 385)
+        text("A to move upwards and D to move down.", 470, 405)
+        text("There is a score which increases each", 485, 425)
+        text("second by 10 points. Points may also be", 470, 445)
+        text("acquired by flying over barren planets.", 480, 465)
+        text("There are 3 types of planets, barren,", 490, 485)
+        text("which gives points, dangerous, which", 485, 505)
+        text("is infested by monsters and gas station,", 470, 525)
+        text("which provides fuel. Fuel is displayed at", 465, 545)
+        text("at the bottom left-hand corner. Fuel decreases", 435, 565)
+        text("at a constant rate and the only way to increase", 436, 585)
+        text("it is by landin on the gas planets. Additionally,", 437.5, 605)
+        text("there are asteroid belts at the top", 500, 625)
+        text("and bottom of the screen. Collision", 495, 645)
+        text("with them will result in death.", 520, 665)
+        body_x=25
+        body_y=355
+        angle=0
+        if (mousePressed == True):
+            fuel_exists = True
+            fuel=100
+    if body_x<25:
+        body_x+=10
+    if body_x>1350:
+        body_x+=-10
+    if body_y<0:
+        body_y+=10
+    if body_y>700:
+        body_y+=-10
 def keyPressed():
     global moveup
     global left
