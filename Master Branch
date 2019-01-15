@@ -9,15 +9,21 @@ fuel_exists=False
 
 
         #Planets
-planet_x = 1300
-planet_y = random(150, 200) 
+planet_x = random(660, 1300)
+planet_y = random(150, 300) 
+planet_d = 200
 
 planet_x2 = 1300
-planet_y2 = random(300, 400) 
+planet_y2 = random(300, 400)
+planet_d2 = 150 
     
-planet_x3 = 1300
+planet_x3 = random(660, 1300)
 planet_y3 = random(450, 550)
+planet_d3 = 175
 
+planet_x4 = random(660, 1300)
+planet_y4 = random(660, 1300)
+planet_d4 = 125
 
 def setup():
     size(1360,710)
@@ -35,10 +41,13 @@ def draw():
     global right
     global planet_x
     global planet_y
+    global planet_d
     global planet_x2
     global planet_y2
+    global planet_d2
     global planet_x3
     global planet_y3
+    global planet_d3
     global fuel
     global fuel_exists
 
@@ -46,55 +55,52 @@ def draw():
         planet_x -= 5
     if planet_x <= 0:
         planet_x = 1300
+        planet_y = random(80, 250)
+        planet_d = random(150, 250)
     
     if planet_x2 <= 1300:
         planet_x2 -= 10
     if planet_x2 <= 0:
         planet_x2 = 1300
-    
+        planet_y2 = random(300, 400)
+        planet_d2 = random(100, 200)
+        
     if planet_x3 <= 1300:
         planet_x3 -= 7
     if planet_x3 <= 0:
         planet_x3 = 1300
+        planet_y3 = random(450, 550)
+        planet_d3 = random(100, 225)
     
     if body_x >= planet_x - 100 and body_x <= planet_x + 100 and body_y >= planet_y - 100 and body_y <= planet_y + 100:
-        textSize(80)
-        fill(125, 0, 0)
-        #text("Collecting Fuel", 450, 350)
         fuel+=1
     
     if body_x >= planet_x2 - 75 and body_x <= planet_x2 + 75 and body_y >= planet_y2 - 75 and body_y <= planet_y2 + 75:
-        textSize(80)
-        fill(125, 0, 0)
-        #text("Collecting Fuel", 450, 350)
         fuel+=1
     
     if body_x >= planet_x3 - 87.5 and body_x <= planet_x3 + 87.5 and body_y >= planet_y3 - 87.5 and body_y <= planet_y3 + 87.5:
-        textSize(80)
-        fill(125, 0, 0)
-        #text("Collecting Fuel", 450, 350)
         fuel+=1
         
       #planet 1
     fill(0, 200, 0)
-    ellipse(planet_x, planet_y, 200, 200)
+    ellipse(planet_x, planet_y, planet_d, planet_d)
     fill(0, 140, 0)
-    ellipse(planet_x - 50, planet_y - 25, 75, 75)
+    ellipse(planet_x - 50, planet_y - 25, planet_d - 125, planet_d - 125)
     fill(0, 140, 0)
-    ellipse(planet_x + 40, planet_y + 50, 55, 55)
+    ellipse(planet_x + 40, planet_y + 50, planet_d - 145, planet_d - 145)
     
     #planet 2
     fill(200, 200, 0)
-    ellipse(planet_x2, planet_y2, 150, 150)
+    ellipse(planet_x2, planet_y2, planet_d2, planet_d2)
     fill(140, 140, 0)
-    ellipse(planet_x2 - 25, planet_y2 - 20, 75, 75)
-    ellipse(planet_x2 + 20, planet_y2 + 35, 45, 45)
+    ellipse(planet_x2 - 25, planet_y2 - 20, planet_d2 - 75, planet_d2 - 75)
+    ellipse(planet_x2 + 20, planet_y2 + 35, planet_d2 - 105, planet_d2 - 105)
     
     #planet 3
     fill(255, 0, 255)
-    ellipse(planet_x3, planet_y3, 175, 175)
+    ellipse(planet_x3, planet_y3, planet_d3, planet_d3)
     fill(150, 0, 150)
-    ellipse(planet_x3 - 35, planet_y3 + 30, 65, 65)
+    ellipse(planet_x3 - 35, planet_y3 + 30, planet_d3 - 100, planet_d3 - 100)
     
 
     #Space Monsters
@@ -113,7 +119,6 @@ def draw():
     ellipse(planet_x - 45, planet_y - 25, 40, 50)
     fill(200, 0, 0)
     ellipse(planet_x - 35, planet_y - 25, 20, 40)
-
     '''#Asteroid Belt
     if body_y <= 130:
         body_y += 200
