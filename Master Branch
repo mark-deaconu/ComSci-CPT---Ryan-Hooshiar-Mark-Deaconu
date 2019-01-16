@@ -5,25 +5,34 @@ fuel=100
 moveup = False
 left = False
 right = False
-fuel_exists=False
+fuel_exists = False
 
 
         #Planets
 planet_x = random(660, 1300)
-planet_y = random(150, 300) 
+planet_y = random(150, 600) 
 planet_d = 200
+planet_colour = random(100, 255)
 
 planet_x2 = 1300
-planet_y2 = random(300, 400)
+planet_y2 = random(150, 600)
 planet_d2 = 150 
+planet_colour2 = random(100, 255)
     
 planet_x3 = random(660, 1300)
-planet_y3 = random(450, 550)
+planet_y3 = random(150, 600)
 planet_d3 = 175
+planet_colour3 = random(100, 255)
 
 planet_x4 = random(660, 1300)
-planet_y4 = random(660, 1300)
+planet_y4 = random(150, 600)
 planet_d4 = 125
+planet_colour4 = random(100, 255)
+
+planet_x5 = random(660, 1300)
+planet_y5 = random(660, 1300)
+planet_d5 = 225
+planet_colour5 = random(100, 255)
 
 def setup():
     size(1360,710)
@@ -42,35 +51,65 @@ def draw():
     global planet_x
     global planet_y
     global planet_d
+    global planet_colour
     global planet_x2
     global planet_y2
     global planet_d2
+    global planet_colour2
     global planet_x3
     global planet_y3
     global planet_d3
+    global planet_colour3
+    global planet_x4
+    global planet_y4
+    global planet_d4
+    global planet_colour4
+    global planet_x5
+    global planet_y5
+    global planet_d5
+    global planet_colour5
     global fuel
     global fuel_exists
 
     if planet_x <= 1300:
-        planet_x -= 5
+        planet_x -= 10
     if planet_x <= 0:
         planet_x = 1300
         planet_y = random(80, 250)
         planet_d = random(150, 250)
+        planet_colour = random(100, 255)
     
     if planet_x2 <= 1300:
-        planet_x2 -= 10
+        planet_x2 -= 15
     if planet_x2 <= 0:
         planet_x2 = 1300
         planet_y2 = random(300, 400)
         planet_d2 = random(100, 200)
+        planet_colour2 = random(100, 255)
         
     if planet_x3 <= 1300:
-        planet_x3 -= 7
+        planet_x3 -= 12
     if planet_x3 <= 0:
         planet_x3 = 1300
         planet_y3 = random(450, 550)
         planet_d3 = random(100, 225)
+        planet_colour3 = random(100, 255)
+    
+    if planet_x4 <= 1300:
+        planet_x4 -= 20
+    if planet_x4 <= 0:
+        planet_x4 = 1300
+        planet_y4 = random(450, 550)
+        planet_d4 = random(100, 225)
+        planet_colour4 = random(100, 255)
+        
+    if planet_x5 <= 1300:
+        planet_x5 -= 13
+    if planet_x5 <= 0:
+        planet_x5 = 1300
+        planet_y5 = random(450, 550)
+        planet_d5 = random(100, 225)
+        planet_colour5 = random(100, 255)
     
     if body_x >= planet_x - 100 and body_x <= planet_x + 100 and body_y >= planet_y - 100 and body_y <= planet_y + 100:
         fuel+=1
@@ -80,9 +119,15 @@ def draw():
     
     if body_x >= planet_x3 - 87.5 and body_x <= planet_x3 + 87.5 and body_y >= planet_y3 - 87.5 and body_y <= planet_y3 + 87.5:
         fuel+=1
+    
+    if body_x >= planet_x4 - 62.5 and body_x <= planet_x4 + 62.5 and body_y >= planet_y4 - 62.5 and body_y <= planet_y4 + 62.5:
+        fuel+=1
+        
+    if body_x >= planet_x5 - 112.5 and body_x <= planet_x5 + 112.5 and body_y >= planet_y5 - 112.5 and body_y <= planet_y5 + 112.5:
+        fuel+=1
         
       #planet 1
-    fill(0, 200, 0)
+    fill(0, planet_colour, 0)
     ellipse(planet_x, planet_y, planet_d, planet_d)
     fill(0, 140, 0)
     ellipse(planet_x - 50, planet_y - 25, planet_d - 125, planet_d - 125)
@@ -90,18 +135,25 @@ def draw():
     ellipse(planet_x + 40, planet_y + 50, planet_d - 145, planet_d - 145)
     
     #planet 2
-    fill(200, 200, 0)
+    fill(planet_colour2, planet_colour2, 0)
     ellipse(planet_x2, planet_y2, planet_d2, planet_d2)
     fill(140, 140, 0)
     ellipse(planet_x2 - 25, planet_y2 - 20, planet_d2 - 75, planet_d2 - 75)
     ellipse(planet_x2 + 20, planet_y2 + 35, planet_d2 - 105, planet_d2 - 105)
     
     #planet 3
-    fill(255, 0, 255)
+    fill(planet_colour3, 0, planet_colour3)
     ellipse(planet_x3, planet_y3, planet_d3, planet_d3)
     fill(150, 0, 150)
     ellipse(planet_x3 - 35, planet_y3 + 30, planet_d3 - 100, planet_d3 - 100)
     
+    #planet 4
+    fill(0, 0, planet_colour4)
+    ellipse(planet_x4, planet_y4, planet_d4, planet_d4)
+    
+    #planet 5
+    fill(planet_colour5, 0, 0)
+    ellipse(planet_x5, planet_y5, planet_d5, planet_d5)
 
     #Space Monsters
     fill(150, 0, 150)
@@ -135,7 +187,7 @@ def draw():
     rect(850, 10, 100, 60)
     rect(1000, 10, 100, 60)
     rect(1150, 10, 100, 60)
-    rect(1300, 10, 100, 60)
+    rect(1300, 10, 100, 60)'''
     
     if body_y >= 600:
         body_y -= 255
@@ -148,7 +200,7 @@ def draw():
     rect(850, 660, 100, 60)
     rect(1000, 660, 100, 60)
     rect(1150, 660, 100, 60)
-    rect(1300, 660, 100, 60)'''
+    rect(1300, 660, 100, 60)
     
     #Fuel Bar
     fuel+=-0.5
