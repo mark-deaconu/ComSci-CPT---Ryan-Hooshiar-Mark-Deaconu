@@ -6,7 +6,7 @@ moveup = False
 left = False
 right = False
 fuel_exists = False
-
+score=0
 
         #Planets
 planet_x = random(660, 1300)
@@ -42,6 +42,7 @@ def setup():
         
 def draw(): 
     background(0)
+    global score
     global angle
     global body_x
     global body_y
@@ -71,6 +72,11 @@ def draw():
     global fuel
     global fuel_exists
 
+    score+=1
+    textSize(50)
+    text("score:",0,50)
+    text(score,250,50)
+    
     if planet_x <= 1300:
         planet_x -= 10
     if planet_x <= 0:
