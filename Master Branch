@@ -30,7 +30,7 @@ planet_d4 = 125
 planet_colour4 = random(100, 255)
 
 planet_x5 = random(660, 1300)
-planet_y5 = random(660, 1300)
+planet_y5 = random(150, 600)
 planet_d5 = 225
 planet_colour5 = random(100, 255)
 
@@ -75,7 +75,7 @@ def draw():
         planet_x -= 10
     if planet_x <= 0:
         planet_x = 1300
-        planet_y = random(80, 250)
+        planet_y = random(150, 600)
         planet_d = random(150, 250)
         planet_colour = random(100, 255)
     
@@ -83,7 +83,7 @@ def draw():
         planet_x2 -= 15
     if planet_x2 <= 0:
         planet_x2 = 1300
-        planet_y2 = random(300, 400)
+        planet_y2 = random(150, 600)
         planet_d2 = random(100, 200)
         planet_colour2 = random(100, 255)
         
@@ -91,7 +91,7 @@ def draw():
         planet_x3 -= 12
     if planet_x3 <= 0:
         planet_x3 = 1300
-        planet_y3 = random(450, 550)
+        planet_y3 = random(150, 600)
         planet_d3 = random(100, 225)
         planet_colour3 = random(100, 255)
     
@@ -99,7 +99,7 @@ def draw():
         planet_x4 -= 20
     if planet_x4 <= 0:
         planet_x4 = 1300
-        planet_y4 = random(450, 550)
+        planet_y4 = random(150, 600)
         planet_d4 = random(100, 225)
         planet_colour4 = random(100, 255)
         
@@ -107,7 +107,7 @@ def draw():
         planet_x5 -= 13
     if planet_x5 <= 0:
         planet_x5 = 1300
-        planet_y5 = random(450, 550)
+        planet_y5 = random(150, 600)
         planet_d5 = random(100, 225)
         planet_colour5 = random(100, 255)
     
