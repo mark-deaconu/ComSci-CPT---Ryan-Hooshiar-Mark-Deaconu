@@ -314,6 +314,7 @@ def draw():
         body_x=25
         body_y=355
         angle=0
+        score=0
         if (mousePressed == True):
             fuel_exists = True
             fuel=100
