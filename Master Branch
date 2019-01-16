@@ -74,7 +74,7 @@ def draw():
 
     score+=1
     textSize(50)
-    text("score:",0,50)
+    text("SCORE:",0,50)
     text(score,250,50)
     
     if planet_x <= 1300:
@@ -139,6 +139,22 @@ def draw():
     ellipse(planet_x - 50, planet_y - 25, planet_d - 125, planet_d - 125)
     fill(0, 140, 0)
     ellipse(planet_x + 40, planet_y + 50, planet_d - 145, planet_d - 145)
+        #Space Monsters
+    fill(150, 0, 150)
+    ellipse(planet_x - 50, planet_y - 25, 65, 65)
+    rect(planet_x - 120, planet_y - 25, 50, 20)    
+    rect(planet_x - 120, planet_y - 50, 50, 20) 
+    ellipse(planet_x - 120, planet_y - 15, 25, 25)
+    ellipse(planet_x - 120, planet_y - 40, 25, 25) 
+    fill(255)
+    ellipse(planet_x - 120, planet_y - 15, 15, 15)
+    ellipse(planet_x - 120, planet_y - 40, 15, 15)
+    fill(0)
+    ellipse(planet_x - 120, planet_y - 15, 5, 5)
+    ellipse(planet_x - 120, planet_y - 40, 5, 5)
+    ellipse(planet_x - 45, planet_y - 25, 40, 50)
+    fill(200, 0, 0)
+    ellipse(planet_x - 35, planet_y - 25, 20, 40)
     
     #planet 2
     fill(planet_colour2, planet_colour2, 0)
@@ -161,22 +177,6 @@ def draw():
     fill(planet_colour5, 0, 0)
     ellipse(planet_x5, planet_y5, planet_d5, planet_d5)
 
-    #Space Monsters
-    fill(150, 0, 150)
-    ellipse(planet_x - 50, planet_y - 25, 65, 65)
-    rect(planet_x - 120, planet_y - 25, 50, 20)    
-    rect(planet_x - 120, planet_y - 50, 50, 20) 
-    ellipse(planet_x - 120, planet_y - 15, 25, 25)
-    ellipse(planet_x - 120, planet_y - 40, 25, 25) 
-    fill(255)
-    ellipse(planet_x - 120, planet_y - 15, 15, 15)
-    ellipse(planet_x - 120, planet_y - 40, 15, 15)
-    fill(0)
-    ellipse(planet_x - 120, planet_y - 15, 5, 5)
-    ellipse(planet_x - 120, planet_y - 40, 5, 5)
-    ellipse(planet_x - 45, planet_y - 25, 40, 50)
-    fill(200, 0, 0)
-    ellipse(planet_x - 35, planet_y - 25, 20, 40)
     '''#Asteroid Belt
     if body_y <= 130:
         body_y += 200
