@@ -122,30 +122,30 @@ def draw():
         planet_d5 = random(100, 225)
         planet_colour5 = random(100, 255)
         
-    if planet_x6 <= 1300:
+    if planet_x6 <= 4000:
         planet_x6 -= 30
     if planet_x6 <= 0:
-        planet_x6 = random(1300, 2000)
+        planet_x6 = random(1300, 4000)
         planet_y6 = random(150, 600)
     
     
     if body_x >= planet_x - 100 and body_x <= planet_x + 100 and body_y >= planet_y - 100 and body_y <= planet_y + 100:
-        fuel+=1
+        fuel = 0
     
     if body_x >= planet_x2 - 75 and body_x <= planet_x2 + 75 and body_y >= planet_y2 - 75 and body_y <= planet_y2 + 75:
-        fuel+=1
+        fuel += 1
     
     if body_x >= planet_x3 - 87.5 and body_x <= planet_x3 + 87.5 and body_y >= planet_y3 - 87.5 and body_y <= planet_y3 + 87.5:
-        fuel+=1
+        fuel += 1
     
     if body_x >= planet_x4 - 62.5 and body_x <= planet_x4 + 62.5 and body_y >= planet_y4 - 62.5 and body_y <= planet_y4 + 62.5:
-        fuel+=1
+        fuel += 1
         
     if body_x >= planet_x5 - 112.5 and body_x <= planet_x5 + 112.5 and body_y >= planet_y5 - 112.5 and body_y <= planet_y5 + 112.5:
-        fuel+=1
+        fuel += 1
     
     if body_x >= planet_x6 - 50 and body_x <= planet_x6 + 50 and body_y >= planet_y6 - 50 and body_y <= planet_y6 + 50:
-        fuel+=1
+        fuel += 1
         
       #planet 1
     fill(0, planet_colour, 0)
@@ -212,7 +212,7 @@ def draw():
     rect(850, 10, 100, 60)
     rect(1000, 10, 100, 60)
     rect(1150, 10, 100, 60)
-    rect(1300, 10, 100, 60)'''
+    rect(1300, 10, 100, 60)
     
     if body_y >= 600:
         body_y -= 255
@@ -225,7 +225,7 @@ def draw():
     rect(850, 660, 100, 60)
     rect(1000, 660, 100, 60)
     rect(1150, 660, 100, 60)
-    rect(1300, 660, 100, 60)
+    rect(1300, 660, 100, 60)'''
     
     #Fuel Bar
     fuel+=-0.5
