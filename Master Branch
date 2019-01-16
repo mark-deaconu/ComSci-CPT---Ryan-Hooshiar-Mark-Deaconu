@@ -34,6 +34,9 @@ planet_y5 = random(150, 600)
 planet_d5 = 225
 planet_colour5 = random(100, 255)
 
+planet_x6 = random(660, 1300)
+planet_y6 = random(150, 600)
+
 def setup():
     size(1360,710)
     background(100)
@@ -69,6 +72,8 @@ def draw():
     global planet_y5
     global planet_d5
     global planet_colour5
+    global planet_x6
+    global planet_y6
     global fuel
     global fuel_exists
 
@@ -116,6 +121,13 @@ def draw():
         planet_y5 = random(150, 600)
         planet_d5 = random(100, 225)
         planet_colour5 = random(100, 255)
+        
+    if planet_x6 <= 1300:
+        planet_x6 -= 30
+    if planet_x6 <= 0:
+        planet_x6 = random(1300, 2000)
+        planet_y6 = random(150, 600)
+    
     
     if body_x >= planet_x - 100 and body_x <= planet_x + 100 and body_y >= planet_y - 100 and body_y <= planet_y + 100:
         fuel+=1
@@ -130,6 +142,9 @@ def draw():
         fuel+=1
         
     if body_x >= planet_x5 - 112.5 and body_x <= planet_x5 + 112.5 and body_y >= planet_y5 - 112.5 and body_y <= planet_y5 + 112.5:
+        fuel+=1
+    
+    if body_x >= planet_x6 - 50 and body_x <= planet_x6 + 50 and body_y >= planet_y6 - 50 and body_y <= planet_y6 + 50:
         fuel+=1
         
       #planet 1
@@ -176,6 +191,10 @@ def draw():
     #planet 5
     fill(planet_colour5, 0, 0)
     ellipse(planet_x5, planet_y5, planet_d5, planet_d5)
+
+    #planet 6
+    fill(255, 215, 0)
+    ellipse(planet_x6, planet_y6, 100, 100)
 
     '''#Asteroid Belt
     if body_y <= 130:
@@ -283,6 +302,9 @@ def draw():
     ellipse(10, 0, 15, 15)
         
     popMatrix()
+    
+    if fuel > 100:
+        fuel = 100
     
     if fuel_exists==False:
         #body_x=0
