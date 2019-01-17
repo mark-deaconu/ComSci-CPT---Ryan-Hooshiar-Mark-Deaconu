@@ -37,6 +37,11 @@ planet_colour5 = random(100, 255)
 planet_x6 = random(660, 1300)
 planet_y6 = random(150, 600)
 
+planet_x7 = random(660, 1300)
+planet_y7 = random(150, 600)
+planet_d7 = 180
+planet_colour7 = random(100, 255)
+
 def setup():
     size(1360,710)
     background(100)
@@ -74,6 +79,10 @@ def draw():
     global planet_colour5
     global planet_x6
     global planet_y6
+    global planet_x7
+    global planet_y7
+    global planet_d7
+    global planet_colour7
     global fuel
     global fuel_exists
 
@@ -128,6 +137,13 @@ def draw():
         planet_x6 = random(1300, 4000)
         planet_y6 = random(150, 600)
     
+    if planet_x7 <= 1300:
+        planet_x7 -= 18
+    if planet_x7 <= 0:
+        planet_x7 = 1300
+        planet_y7 = random(150, 600)
+        planet_d7 = random(100, 225)
+        planet_colour7 = random(100, 255)
     
     if body_x >= planet_x - 100 and body_x <= planet_x + 100 and body_y >= planet_y - 100 and body_y <= planet_y + 100:
         fuel = 0
@@ -145,6 +161,9 @@ def draw():
         fuel += 1
     
     if body_x >= planet_x6 - 50 and body_x <= planet_x6 + 50 and body_y >= planet_y6 - 50 and body_y <= planet_y6 + 50:
+        fuel += 1
+        
+    if body_x >= planet_x7 - 90 and body_x <= planet_x7 + 90 and body_y >= planet_y7 - 90 and body_y <= planet_y7 + 90:
         fuel += 1
         
       #planet 1
@@ -182,7 +201,7 @@ def draw():
     fill(planet_colour3, 0, planet_colour3)
     ellipse(planet_x3, planet_y3, planet_d3, planet_d3)
     fill(150, 0, 150)
-    ellipse(planet_x3 - 35, planet_y3 + 30, planet_d3 - 100, planet_d3 - 100)
+    ellipse(planet_x3 - 25, planet_y3 + 30, planet_d3 - 100, planet_d3 - 100)
     
     #planet 4
     fill(0, 0, planet_colour4)
@@ -195,6 +214,10 @@ def draw():
     #planet 6
     fill(255, 215, 0)
     ellipse(planet_x6, planet_y6, 100, 100)
+
+    #planet 7
+    fill(0, planet_colour7, planet_colour7)
+    ellipse(planet_x7, planet_y7, planet_d7, planet_d7)
 
     '''#Asteroid Belt
     if body_y <= 130:
@@ -342,7 +365,7 @@ def draw():
             fuel=100
     if body_x<25:
         body_x+=10
-    if body_x>1350:
+    if body_x>1360:
         body_x+=-10
     if body_y<0:
         body_y+=10
