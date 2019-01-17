@@ -221,7 +221,7 @@ def draw():
     fill(0, planet_colour7, planet_colour7)
     ellipse(planet_x7, planet_y7, planet_d7, planet_d7)
     if score>high_score:
-    high_score=score
+        high_score = score
 
     '''#Asteroid Belt
     if body_y <= 130:
@@ -342,7 +342,7 @@ def draw():
         textSize(100)
         fill(255)
         text(high_score-1, 1000,100)
-        text("high score:",300,100)
+        text("HIGH SCORE:",300,100)
         text("PLAY", 550, 255)
         textSize(50)
         text("HOW TO PLAY:", 490, 355)
