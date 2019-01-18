@@ -93,10 +93,10 @@ def draw():
     text("SCORE:",0,50)
     text(score,250,50)
     
-    if planet_x <= 1300:
+    if planet_x <= 1800:
         planet_x -= 10
     if planet_x <= 0:
-        planet_x = 1300
+        planet_x = random(1300, 1800)
         planet_y = random(150, 600)
         planet_d = random(150, 250)
         planet_colour = random(100, 255)
@@ -126,7 +126,7 @@ def draw():
         planet_colour4 = random(100, 255)
         
     if planet_x5 <= 1300:
-        planet_x5 -= 13
+        planet_x5 -= 11
     if planet_x5 <= 0:
         planet_x5 = 1300
         planet_y5 = random(150, 600)
@@ -222,37 +222,6 @@ def draw():
     ellipse(planet_x7, planet_y7, planet_d7, planet_d7)
     if score>high_score:
         high_score = score
-
-    '''#Asteroid Belt
-    if body_y <= 130:
-        body_y += 200
-        fuel_exists=False
-    print(body_y)
-        
-    fill(218,165,32)
-    rect(-50, 10, 100, 60)
-    rect(100, 10, 100, 60)
-    rect(250, 10, 100, 60)
-    rect(400, 10, 100, 60)
-    rect(550, 10, 100, 60)
-    rect(700, 10, 100, 60)
-    rect(850, 10, 100, 60)
-    rect(1000, 10, 100, 60)
-    rect(1150, 10, 100, 60)
-    rect(1300, 10, 100, 60)
-    
-    if body_y >= 600:
-        body_y -= 255
-        fuel_exists=False
-        
-    fill(218,165,32)
-    rect(400, 660, 100, 60)
-    rect(550, 660, 100, 60)
-    rect(700, 660, 100, 60)
-    rect(850, 660, 100, 60)
-    rect(1000, 660, 100, 60)
-    rect(1150, 660, 100, 60)
-    rect(1300, 660, 100, 60)'''
     
     #Fuel Bar
     fuel+=-0.5
@@ -347,21 +316,17 @@ def draw():
         textSize(50)
         text("HOW TO PLAY:", 490, 355)
         textSize(20)
-        text("The controls are W to move forward,", 490, 385)
-        text("A to move upwards and D to move down.", 470, 405)
-        text("There is a score which increases each", 485, 425)
-        text("second by 10 points. Points may also be", 470, 445)
-        text("acquired by flying over barren planets.", 480, 465)
-        text("There are 3 types of planets, barren,", 490, 485)
-        text("which gives points, dangerous, which", 485, 505)
-        text("is infested by monsters and gas station,", 470, 525)
-        text("which provides fuel. Fuel is displayed at", 465, 545)
-        text("at the bottom left-hand corner. Fuel decreases", 435, 565)
-        text("at a constant rate and the only way to increase", 436, 585)
-        text("it is by landin on the gas planets. Additionally,", 437.5, 605)
-        text("there are asteroid belts at the top", 500, 625)
-        text("and bottom of the screen. Collision", 495, 645)
-        text("with them will result in death.", 520, 665)
+        text("The controls are W to move faster,", 490, 385)
+        text("A to move left and D to move right.", 495, 405)
+        text("There is a score which always", 505, 425)
+        text("increases. There are 2 types of planets,", 475, 445)
+        text("regular which gives provides fuel when the player", 420, 465)
+        text("hovers over it, and also monster planets.", 470, 485)
+        text("These planets have aliens on them which kill", 445, 505)
+        text("Fuel is displayed at the bottom left-hand", 470, 525)
+        text("corner. Fuel decreases at a constant rate and the only", 410, 545)
+        text("and the only way to increase it is by flying over regular", 400, 565)
+        text("planets to obtain the gas in their atmosphere.", 440, 585)
         body_x=25
         body_y=355
         angle=0
