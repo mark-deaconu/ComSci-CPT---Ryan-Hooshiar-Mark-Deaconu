@@ -148,7 +148,7 @@ def draw():
         planet_colour7 = random(100, 255)
     
     if body_x >= planet_x - 100 and body_x <= planet_x + 100 and body_y >= planet_y - 100 and body_y <= planet_y + 100:
-        fuel = 0
+        fuel_exists = False
     
     if body_x >= planet_x2 - 75 and body_x <= planet_x2 + 75 and body_y >= planet_y2 - 75 and body_y <= planet_y2 + 75:
         fuel += 1
