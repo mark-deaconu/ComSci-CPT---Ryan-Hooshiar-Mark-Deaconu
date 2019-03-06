@@ -348,87 +348,84 @@ def draw():
         fuel = 100
     last_score=score
     if fuel_exists==False:
-        for time in range(0,100):
-            #body_x=0
-            #body_y=0
-            fill(200, 0, 0)
-            rect(0,0,2000,1000)
-            fill(0, 255, 0)
-            rect(550, 155, 245, 125)
-            textSize(100)
+        #body_x=0
+        #body_y=0
+        fill(0, 255, 0)
+        rect(550, 155, 245, 125)
+        textSize(100) 
+        fill(255)
+        text(high_score, 1000,100)
+        text("HIGH SCORE:",300,100)
+        text("PLAY", 550, 255)
+        textSize(50)
+        text("HOW TO PLAY:", 490, 355)
+        textSize(20)
+        text("The controls are W to move faster,", 490, 385)
+        text("A to move left and D to move right.", 495, 405)
+        text("There is a score which is always", 505, 425)
+        text("increasing. There are 2 types of planets,", 475, 445)
+        text("regular which provides fuel when the player", 455, 465)
+        text("hovers over it, and also monster planets.", 470, 485)
+        text("These planets have aliens on them which eat the player", 405, 505)
+        text("when the rocket flies over them. Fuel is displayed at", 420, 525)
+        text("the bottom left corner. Fuel decreases at a constant", 420, 545)
+        text("rate and the only way to increase it is by flying over", 420, 565)
+        text("regular planets to obtain the gas in their atmosphere.", 410, 585)
+        '''textSize(100)
+        text(score - 1, 1000, 680)
+        text("LAST SCORE:", 300, 680)'''
+        fill(0,200,0)
+        rect(50,350,200,200)
+        if high_score>2:
             fill(255)
-            text(high_score, 1000,100)
-            text("HIGH SCORE:",300,100)
-            text("PLAY", 550, 255)
-            textSize(50)
-            text("HOW TO PLAY:", 490, 355)
-            textSize(20)
-            text("The controls are W to move faster,", 490, 385)
-            text("A to move left and D to move right.", 495, 405)
-            text("There is a score which is always", 505, 425)
-            text("increasing. There are 2 types of planets,", 475, 445)
-            text("regular which provides fuel when the player", 455, 465)
-            text("hovers over it, and also monster planets.", 470, 485)
-            text("These planets have aliens on them which eat the player", 405, 505)
-            text("when the rocket flies over them. Fuel is displayed at", 420, 525)
-            text("the bottom left corner. Fuel decreases at a constant", 420, 545)
-            text("rate and the only way to increase it is by flying over", 420, 565)
-            text("regular planets to obtain the gas in their atmosphere.", 410, 585)
-            '''textSize(100)
-            text(score - 1, 1000, 680)
-            text("LAST SCORE:", 300, 680)'''
-            fill(0,200,0)
-            rect(50,350,200,200)
-            if high_score>2:
-                fill(255)
-                text("YOU DIED", 100,400)
-                text("SCORE:", 100,500)
-                text(last_score, 200,500)
-            body_x=25
-            body_y=355
-            angle=0
-            planet_x = random(660, 1300)
-            planet_y = random(150, 600) 
-            planet_d = 200
-            planet_colour = random(100, 255)
+            text("YOU DIED", 100,400)
+            text("SCORE:", 100,500)
+            text(last_score, 200,500)
+        body_x=25
+        body_y=355
+        angle=0
+        planet_x = random(660, 1300)
+        planet_y = random(150, 600) 
+        planet_d = 200
+        planet_colour = random(100, 255)
             
-            planet_x2 = 1300
-            planet_y2 = random(150, 600)
-            planet_d2 = 150 
-            planet_colour2 = random(100, 255)
+        planet_x2 = 1300
+        planet_y2 = random(150, 600)
+        planet_d2 = 150 
+        planet_colour2 = random(100, 255)
                 
-            planet_x3 = random(660, 1300)
-            planet_y3 = random(150, 600)
-            planet_d3 = 175
-            planet_colour3 = random(100, 255)
+        planet_x3 = random(660, 1300)
+        planet_y3 = random(150, 600)
+        planet_d3 = 175
+        planet_colour3 = random(100, 255)
             
-            planet_x4 = random(660, 1300)
-            planet_y4 = random(150, 600)
-            planet_d4 = 125
-            planet_colour4 = random(100, 255)
+        planet_x4 = random(660, 1300)
+        planet_y4 = random(150, 600)
+        planet_d4 = 125
+        planet_colour4 = random(100, 255)
             
-            planet_x5 = random(660, 1300)
-            planet_y5 = random(150, 600)
-            planet_d5 = 225
-            planet_colour5 = random(100, 255)
+        planet_x5 = random(660, 1300)
+        planet_y5 = random(150, 600)
+        planet_d5 = 225
+        planet_colour5 = random(100, 255)
             
-            planet_x6 = random(660, 1300)
-            planet_y6 = random(150, 600)
+        planet_x6 = random(660, 1300)
+        planet_y6 = random(150, 600)
             
-            planet_x7 = random(660, 1300)
-            planet_y7 = random(150, 600)
-            planet_d7 = 180
-            planet_colour7 = random(100, 255)
+        planet_x7 = random(660, 1300)
+        planet_y7 = random(150, 600)
+        planet_d7 = 180
+        planet_colour7 = random(100, 255)
             
-            planet_x8 = random(660, 1300)
-            planet_y8 = random(150, 600)
-            planet_d8 = 135
-            planet_colour8 = random(150, 255)
+        planet_x8 = random(660, 1300)
+        planet_y8 = random(150, 600)
+        planet_d8 = 135
+        planet_colour8 = random(150, 255)
 
-            if (mousePressed == True):
-                score=0
-                fuel_exists = True
-                fuel=100
+        if (mousePressed == True):
+            score=0
+            fuel_exists = True
+            fuel=100
     if body_x<25:
         body_x+=10
     if body_x>1360:
